@@ -6,4 +6,8 @@
     <string name="give_permission">Дать доступ</string>
     <string name="Cancel">Отмена</string>
     <string name="open_settings">Открыть настройки</string>
+    <string name="name">name</string>
+    <string name="surname">surname</string>
+    <string name="age">age</string>
+    <string name="apply">Применить</string>
 </resources>

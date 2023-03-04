@@ -13,16 +13,19 @@
 
         <EditText
             android:id="@+id/name"
+            android:hint="@string/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/surname"
+            android:hint="@string/surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/age"
+            android:hint="@string/age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -30,7 +33,7 @@
             android:id="@+id/applyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Применить"/>
+            android:text="@string/apply"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
