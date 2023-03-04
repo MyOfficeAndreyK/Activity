@@ -21,7 +21,6 @@ class EditProfileActivity : AppCompatActivity() {
 
     private var imgUri: Uri? = null
     private lateinit var imageView: ImageView
-    private var isCameraPermissionWasDenied: Boolean = false
     private val openCameraContract = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         if (!granted) {
             val dontAskAgain = !shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA)
@@ -29,7 +28,6 @@ class EditProfileActivity : AppCompatActivity() {
                 showAppSettingsDialog()
             }
 
-            isCameraPermissionWasDenied = true;
         } else {
             imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.cat))
         }
@@ -80,7 +78,7 @@ class EditProfileActivity : AppCompatActivity() {
         imageView.setOnClickListener {
                 MaterialAlertDialogBuilder(this)
                 .setPositiveButton(getString(R.string.make_photo)) { _, _ ->
-                    if (isCameraPermissionWasDenied) {
+                    if (shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA)) {
                         showExplonationDialog()
                     } else {
                         getCameraPermission()
@@ -109,7 +107,6 @@ class EditProfileActivity : AppCompatActivity() {
             .setTitle("Hello")
             .setMessage("We need camera")
             .setPositiveButton(getString(R.string.give_permission)) { _, _ ->
-                isCameraPermissionWasDenied = false;
                 getCameraPermission()
             }
             .setNeutralButton(getString(R.string.Cancel)) { _, _ ->
